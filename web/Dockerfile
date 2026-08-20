@@ -32,6 +32,21 @@ RUN \
   chown s6:s6 /storage && \
   apt-cleanup
 
+# Copy custom branding files into the container
+COPY branding/ /branding/
+
+# Apply branding customizations
+RUN \
+  cp /branding/favicon.ico /usr/share/jitsi-meet/favicon.ico && \
+  cp /branding/favicon.png /usr/share/jitsi-meet/images/favicon.png && \
+  cp /branding/apple-touch-icon.png /usr/share/jitsi-meet/images/apple-touch-icon.png && \
+  cp /branding/logo-white.png /usr/share/jitsi-meet/images/watermark.png && \
+  cp /branding/logo-white.png /usr/share/jitsi-meet/images/logo-deep-linking.png && \
+  echo '<title>Think.4U Meet</title>' > /usr/share/jitsi-meet/title.html && \
+  cat /branding/custom-styles.css >> /usr/share/jitsi-meet/css/all.css && \
+  cat /branding/custom-interface_config.js >> /defaults/interface_config.js && \
+  jq '.welcomepage.title = "Think.4U Video Meetings" | .welcomepage.headerTitle = "Think.4U Video Meetings" | .welcomepage.subTitle = "Secure, high-quality video conferencing for Think.4U." | .appDescription = "Join secure virtual rooms linked to your Think.4U charity portal."' /usr/share/jitsi-meet/lang/main.json > /tmp/main.json && mv /tmp/main.json /usr/share/jitsi-meet/lang/main.json
+
 EXPOSE 8000 8443
 
 VOLUME ["/config", "/usr/share/jitsi-meet/transcripts"]

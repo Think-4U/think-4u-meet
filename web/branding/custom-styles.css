@@ -1,0 +1,70 @@
+/* Think.4U Charity Brand Customization */
+:root {
+  --jitsi-bg: #1f0606;
+  --jitsi-accent: #d58d4b;
+  --jitsi-accent-hover: #c97835;
+}
+
+/* Background overrides */
+body, 
+#videoconference_page, 
+#largeVideoBackground, 
+.new-layout,
+.prejoin-dialog-container,
+.welcome,
+.welcome-page {
+  background-color: var(--jitsi-bg) !important;
+  background: var(--jitsi-bg) !important;
+}
+
+/* Prejoin and Dialog boxes background */
+.prejoin-dialog,
+.dialog-container,
+.modal-dialog-form,
+.modal-content,
+.dialog-content,
+.dialog {
+  background-color: #2a0b0b !important; /* Slightly lighter shade of dark burgundy */
+  border: 1px solid var(--jitsi-accent) !important;
+}
+
+/* Primary text colors */
+.prejoin-title,
+.dialog-title,
+.modal-title,
+.welcome-title,
+.title {
+  color: var(--jitsi-accent) !important;
+}
+
+/* Buttons and Controls */
+.button-control,
+.toolbox-button,
+.button-primary,
+.action-btn,
+.prejoin-btn,
+.invite-btn,
+.welcome-page-button {
+  background-color: var(--jitsi-accent) !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  border: none !important;
+  transition: background-color 0.2s ease-in-out !important;
+}
+
+.button-control:hover,
+.toolbox-button:hover,
+.button-primary:hover,
+.action-btn:hover,
+.prejoin-btn:hover,
+.welcome-page-button:hover {
+  background-color: var(--jitsi-accent-hover) !important;
+}
+
+/* Watermark styling */
+.watermark {
+  left: 20px !important;
+  top: 20px !important;
+  max-height: 50px !important;
+  width: auto !important;
+}
