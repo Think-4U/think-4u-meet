@@ -23,6 +23,7 @@ services:
         labels:
             service: "jitsi-web"
         environment:
+            - MAIN_WEBSITE_URL
             - AMPLITUDE_ID
             - ANALYTICS_SCRIPT_URLS
             - ANALYTICS_WHITELISTED_EVENTS
