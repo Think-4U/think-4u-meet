@@ -2,6 +2,7 @@ services:
     # Frontend
     web:
         image: ${JITSI_IMAGE_REPO:-ghcr.io/jitsi}/web:${JITSI_IMAGE_VERSION:-unstable}
+        build: ./web
         restart: ${RESTART_POLICY:-unless-stopped}
         read_only: true
         tmpfs:
