@@ -2,7 +2,11 @@ services:
     # Frontend
     web:
         image: ${JITSI_IMAGE_REPO:-ghcr.io/jitsi}/web:${JITSI_IMAGE_VERSION:-unstable}
-        build: ./web
+        build:
+            context: ./web
+            args:
+                - BASE_TAG=${JITSI_IMAGE_VERSION:-unstable}
+                - JITSI_REPO=${JITSI_IMAGE_REPO:-ghcr.io/jitsi}
         restart: ${RESTART_POLICY:-unless-stopped}
         read_only: true
         tmpfs:
